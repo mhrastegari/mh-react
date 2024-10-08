@@ -12,7 +12,7 @@ export default function Layout() {
 
   return (
     <div className="flex flex-col h-screen">
-      <header className="fixed top-0 bg-white z-10 px-4 h-14 text-xl font-bold w-full shadow-md flex justify-between items-center">
+      <header className="fixed top-0 bg-white z-10 px-4 h-14 text-xl font-bold w-full shadow-md flex gap-4 justify-between items-center">
         <span>{headerTitle}</span>
         <button className="text-2xl lg:hidden" onClick={toggleNav}>
           ☰
