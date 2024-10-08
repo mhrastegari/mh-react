@@ -38,7 +38,7 @@ export function useDisplayedTasks() {
   return useContext(TaskStateContext).displayedTasks;
 }
 
-export function TaskProvider(props: PropsWithChildren<{}>) {
+export function TaskProvider(props: PropsWithChildren) {
   const [tasks, setTasks] = useState<Array<Task>>(() => {
     const savedTasks = localStorage.getItem("tasks");
     return savedTasks
@@ -77,12 +77,12 @@ export function TaskProvider(props: PropsWithChildren<{}>) {
     let sortedTasks = filteredTasks;
     switch (sortBy) {
       case "alphabetical":
-        sortedTasks = filteredTasks.toSorted((a, b) =>
+        sortedTasks = filteredTasks.sort((a, b) =>
           a.text.localeCompare(b.text)
         );
         break;
       case "date":
-        sortedTasks = filteredTasks.toSorted(
+        sortedTasks = filteredTasks.sort(
           (a, b) =>
             new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
         );

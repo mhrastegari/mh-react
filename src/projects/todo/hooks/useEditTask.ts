@@ -1,4 +1,3 @@
-import { Task } from "../types";
 import { useTasks, useSetTasks } from "../hooks";
 
 export function useEditTask() {
