@@ -5,13 +5,15 @@ import { VitePWA } from 'vite-plugin-pwa'
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const isProduction = mode === 'production';
+  const baseUrl = isProduction ? "/mh-react/" : "/";
 
   return {
-    base: isProduction ? "/mh-react/" : "/",
+    base: baseUrl,
     plugins: [
       react(),
       VitePWA({
         registerType: 'autoUpdate',
+        scope: baseUrl,
         manifest: {
           name: 'MH React App',
           short_name: 'MH App',
