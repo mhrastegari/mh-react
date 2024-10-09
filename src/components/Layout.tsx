@@ -21,7 +21,7 @@ export default function Layout() {
 
       <div className="flex flex-row h-full pt-14">
         <nav
-          className={`bg-blue-500 w-48 top-0 p-4 h-full fixed lg:static transition-transform transform ${
+          className={`bg-blue-500 w-52 top-0 p-4 h-full fixed lg:static transition-transform transform ${
             isNavOpen ? "translate-x-0" : "-translate-x-full"
           } lg:translate-x-0 z-20`}
         >
