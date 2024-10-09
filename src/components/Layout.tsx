@@ -26,42 +26,17 @@ export default function Layout() {
           } lg:translate-x-0 z-20`}
         >
           <ul className="flex flex-col gap-4">
-            <li>
-              <Link
-                to="/"
-                className="block text-white hover:text-slate-300 w-full"
-                onClick={toggleNav}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/todo"
-                className="block text-white hover:text-slate-300 w-full"
-                onClick={toggleNav}
-              >
-                Todo
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/weather"
-                className="block text-white hover:text-slate-300 w-full"
-                onClick={toggleNav}
-              >
-                Weather
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/tictactoe"
-                className="block text-white hover:text-slate-300 w-full"
-                onClick={toggleNav}
-              >
-                Tic Tac Toe
-              </Link>
-            </li>
+            {ROUTES.map((route) => (
+              <li key={route.path}>
+                <Link
+                  to={route.path}
+                  className="block text-white hover:text-slate-300 w-full"
+                  onClick={toggleNav}
+                >
+                  {route.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
