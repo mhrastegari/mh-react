@@ -15,6 +15,7 @@ export const router = createBrowserRouter(
     </Route>
   ),
   {
+    //For GitHub Pages
     basename: import.meta.env.DEV ? "/" : "/mh-react",
   }
 );

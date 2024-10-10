@@ -7,7 +7,7 @@ export const ROUTES = [
   {
     path: "/",
     element: <Home />,
-    title: "MH React",
+    title: "Home",
   },
   {
     path: "/todo",
