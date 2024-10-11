@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     base: baseUrl,
-    plugins: [s
+    plugins: [
       react(),
       VitePWA({
         registerType: "autoUpdate",
