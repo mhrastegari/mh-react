@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Outlet, Link, useLocation } from "react-router-dom";
 import { ROUTES } from "../constants/router/routes";
+import { Outlet, Link, useLocation } from "react-router-dom";
 
 export default function Layout() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
   const currentRoute = ROUTES.find((route) => route.path === location.pathname);
-  const headerTitle = currentRoute?.title || "App";
+  const headerTitle = currentRoute?.title || "MH React";
 
   const toggleNav = () => setIsNavOpen(!isNavOpen);
 
