@@ -13,9 +13,5 @@ export const router = createBrowserRouter(
         <Route key={route.path} path={route.path} element={route.element} />
       ))}
     </Route>
-  ),
-  {
-    //For GitHub Pages
-    basename: import.meta.env.DEV ? "/" : "/mh-react",
-  }
+  )
 );

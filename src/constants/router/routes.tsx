@@ -3,24 +3,27 @@ import Todo from "../../projects/todo/App";
 import Weather from "../../projects/weather/App";
 import TicTacToe from "../../projects/tic-tac-toe/App";
 
+//For GitHub Pages
+const basename = import.meta.env.DEV ? "/" : "/mh-react";
+
 export const ROUTES = [
   {
-    path: "/",
+    path: basename,
     element: <Home />,
-    title: "Home",
+    title: `${basename}/Home`,
   },
   {
-    path: "/todo",
+    path: `${basename}/todo`,
     element: <Todo />,
     title: "Todo",
   },
   {
-    path: "/weather",
+    path: `${basename}/weather`,
     element: <Weather />,
     title: "Weather Dashboard",
   },
   {
-    path: "/tictactoe",
+    path: `${basename}/tictactoe`,
     element: <TicTacToe />,
     title: "Tic Tac Toe",
   },
