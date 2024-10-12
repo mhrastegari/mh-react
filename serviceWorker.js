@@ -2,7 +2,7 @@ const CACHE_NAME = "mh-react-v0.1.0";
 const urlsToCache = [
   "/",
   "/index.html",
-  "/vite.svg",
+  "/favicon.svg",
   "/manifest.json",
   "/assets/*.css",
   "/assets/*.js",
