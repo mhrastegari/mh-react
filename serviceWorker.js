@@ -1,12 +1,13 @@
 const CACHE_NAME = "mh-react-v0.1.0";
 const urlsToCache = [
   "/",
-  "/*.html",
+  "/index.html",
   "/favicon.svg",
   "/manifest.json",
-  "/assets/*.css",
-  "/assets/*.js",
-  "/icons/*.png",
+  "/style.css",
+  "/script.js",
+  "/icons/icon-192x192.png",
+  "/icons/icon-512x512.png",
 ];
 
 self.addEventListener("install", (event) => {
