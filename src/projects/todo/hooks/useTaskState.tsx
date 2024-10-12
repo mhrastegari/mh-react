@@ -6,6 +6,7 @@ import {
   createContext,
   PropsWithChildren,
 } from "react";
+import { getTasks, saveTasks } from "../db";
 import { Task, TaskSort, TaskFilter, TaskContext } from "../types";
 
 const TaskStateContext = createContext<TaskContext>(null!);
@@ -39,25 +40,21 @@ export function useDisplayedTasks() {
 }
 
 export function TaskProvider(props: PropsWithChildren) {
-  const [tasks, setTasks] = useState<Array<Task>>(() => {
-    const savedTasks = localStorage.getItem("tasks");
-    return savedTasks
-      ? JSON.parse(savedTasks).map((task: Task) => ({
-          ...task,
-          createdAt: new Date(task.createdAt),
-        }))
-      : [];
-  });
-
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [sortBy, setSortBy] = useState<TaskSort>("none");
   const [filter, setFilter] = useState<TaskFilter>("all");
 
   useEffect(() => {
-    if (tasks.length > 0) {
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-    } else {
-      localStorage.removeItem("tasks");
-    }
+    const fetchTasks = async () => {
+      const storedTasks = await getTasks();
+      setTasks(storedTasks);
+    };
+    fetchTasks();
+  }, []);
+
+  useEffect(() => {
+    const save = async () => await saveTasks(tasks);
+    if (tasks.length) save();
   }, [tasks]);
 
   const displayedTasks = useMemo(() => {
