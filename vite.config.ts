@@ -9,5 +9,24 @@ export default defineConfig(({ mode }) => {
   return {
     base: baseUrl,
     plugins: [react()],
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: 'script.js',
+          chunkFileNames: 'chunk-script.js',
+          assetFileNames: (assetInfo) => {
+            if (!assetInfo.names || assetInfo.names.length === 0) {
+              return 'assets/default.[ext]';
+            }
+
+            const assetName = assetInfo.names[0];
+            if (assetName.endsWith('.css')) {
+              return 'style.css';
+            }
+            return `assets/${assetName}-[hash][extname]`;
+          },
+        },
+      },
+    },
   };
 });
